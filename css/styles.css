@@ -97,8 +97,8 @@ header .vl {
     display: flex;
     flex-wrap: nowrap;
     position: relative;
-    background-color:grey;
-    padding-right: 10%;
+    background-color:rgb(173, 170, 170);
+    padding-right: 20px;
 }
 
 #heading-container {
@@ -119,8 +119,8 @@ header .vl {
     margin: auto 0 auto auto;
     max-width: 50%;
     min-width: 20%;
-    height: 80%;
-    background-color: red;
+    height: 40px;
+    background-color: rgb(255, 255, 255);
     flex: 1 1 100px;
 }
 
