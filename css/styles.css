@@ -97,7 +97,7 @@ header .vl {
     display: flex;
     flex-wrap: nowrap;
     position: relative;
-    background-color:rgb(173, 170, 170);
+    background-color:rgb(233, 240, 232);
     padding-right: 20px;
 }
 
@@ -122,6 +122,8 @@ header .vl {
     height: 40px;
     background-color: rgb(255, 255, 255);
     flex: 1 1 100px;
+    border: none;
+    border-radius: 5px;
 }
 
 
