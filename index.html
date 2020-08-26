@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+
+
+    <!-- Link to css -->
+    <link rel="stylesheet" type="text/css" href="css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css" integrity="sha512-/zs32ZEJh+/EO2N1b0PEdoA10JkdC3zJ8L5FTiQu82LR9S/rOQNfQN7U59U9BC12swNeRAz3HSzIL2vpp4fv3w==" crossorigin="anonymous" />
+
+    <!-- Link to fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap"
+        rel="stylesheet">
+</head>
+<body>
+    <div id="grid">
+
+        <!-- Header -->
+        <header>
+            <p id="app-name"><span>Your</span>App<span class="trade-mark">TM</span></p>
+            <div id="header-right">
+                <img id="bell" src="icons/icon-bell.svg" alt="bell icon">
+                <div class="vl"></div>
+                <img id="user-photo" src="images/member-4.jpg" alt="user profile photo">
+                <p id="user-name">Abbey L</p>
+            </div>
+        </header>
+    
+        <!-- Side Navigation -->
+        <nav id="side-nav">
+            <div class="img-container">
+                <img src="icons/icon-dashboard.svg" alt="dashboard icon">
+            </div>
+            <div class="img-container">
+                <img src="icons/icon-members.svg" alt="members icon">
+            </div>
+            <div class="img-container">
+                <img src="icons/icon-visits.svg" alt="visits icon">
+            </div>
+            <div class="img-container">
+                <img src="icons/icon-settings.svg" alt="settings icon">
+            </div>
+        </nav>
+
+        <!-- Upper Section under Header -->
+        <div id="upper">
+            <div id="heading-container">            
+                <h1>Dashboard</h1>
+            </div>
+            <div id="search-bar"></div>
+        </div>
+    
+        <main>
+            <div class="alert">
+                <span class="alert-title">Alert</span>
+                <span class="alert-content">Ebusaoh haodhur sjaodho foij dijiaj bsw epdh elaoiojvn.</span> 
+                <span class="close-sign">&#9747;</span>
+            </div>
+
+            <div class="widget" id="multi-traffic">
+                <h2>TRAFFIC</h2>
+                <canvas id="hourlyTrafficChart" width="400" height="400"></canvas>
+                <canvas id="dailyTrafficChart" width="400" height="400"></canvas>
+                <canvas id="weeklyTrafficChart" width="400" height="400"></canvas>
+                <canvas id="monthlyTrafficChart" width="400" height="400"></canvas>
+
+            </div>
+            <div class="widget" id="daily-traffic">
+                <h2>DAILY TRAFFIC</h2>
+                <canvas id="dailyBarTrafficChart" width="400" height="400"></canvas>
+            </div>
+            <div class="widget" id="mobile-users"></div>
+            <div class="widget" id="social-stat"></div>
+            <div class="widget" id="new-member"></div>
+            <div class="widget" id="activity"></div>
+            <div class="widget" id="msg"></div>
+            <div class="widget" id="setting"></div>
+        </main>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" integrity="sha512-s+xg36jbIujB2S2VKfpGmlC3T5V2TF3lY48DX7u2r9XzGzgPsa6wTpOQA7J9iffvdeBN0q9tKzRxVxw1JviZPg==" crossorigin="anonymous"></script>
+    <script src="js/charts.js"></script>
+</body>
+</html>
