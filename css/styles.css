@@ -7,6 +7,11 @@
     color: #434547;
 }
 
+body {
+    max-width: 100vw;
+    overflow: hidden;
+}
+
 /* Grid Layout */
 
 #grid  {
