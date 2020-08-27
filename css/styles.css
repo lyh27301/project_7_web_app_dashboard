@@ -1,6 +1,6 @@
 * {
     font-family: 'Merriweather', serif;
-    line-height: 2.5rem;
+    line-height: 1.5rem;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -10,19 +10,21 @@
 body {
     max-width: 100vw;
     overflow: hidden;
+    position: x;
 }
 
 /* Grid Layout */
 
 #grid  {
+    max-width: 100%;
+    overflow: hidden;
     display: grid;
-    grid-template-columns: 180px 1fr;
-    grid-template-rows: 140px 140px 1fr;
+    grid-template-columns: 60px minmax(0, 1fr);
+    grid-template-rows: 60px 60px minmax(0, 1fr);
     grid-template-areas: 
     "header header"
     "side upper"
     "side main";
-    width: 100vw;
     min-height: 100vh;
 }
 
@@ -32,14 +34,14 @@ header {
     color: white;
     grid-area: header;
     background-color: rgb(145, 163, 125);
-    padding: 7px 40px;
+    padding: 7px 10px;
     display: flex;
-    font-size: 2.3rem;
+    font-size: 1rem;
 
 }
 
 #app-name {
-    padding-top: 48px;
+    padding-top: 8px;
     color: white;
     font-weight: 300;
     margin-right: auto;
@@ -52,9 +54,9 @@ header {
 
 .trade-mark {
     position: absolute;
-    top: 35px;
+    top: 7px;
     color: white;
-    font-size: .95rem;
+    font-size: .5rem;
 }
 
 #header-right {
@@ -68,42 +70,39 @@ header {
 }
 
 #bell {
-    margin-top: 2px;
-    width: 65px;
+    margin-top: 10px;
+    width: 25px;
 }
 
 header .vl {
     width: 1.2px;
-    height: 115px;
+    height: 30px;
     background-color: rgb(106, 124, 89);
-    margin-top: 5px;
-    margin-left: 30px;
+    margin-top: 15px;
 }
 
 #user-photo {
-    width: 85px;
-    height: 85px;
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
-    margin-top: 20px;
-    margin-left: 30px;
+    margin-top: 12px;
 }
 
 #user-name {
-    margin-left: 30px;
-    margin-top: 50px;
+    margin-top: 8px;
     color: white;
+    margin-right: 0;
 }
 
 /* Upper */
 
 #upper {
-    width: 100%;
     grid-area: upper;
     display: flex;
     flex-wrap: nowrap;
     position: relative;
     background-color:rgb(233, 240, 232);
-    padding-right: 30px;
+    padding-right: 7px;
 }
 
 #heading-container {
@@ -111,25 +110,27 @@ header .vl {
 }
 
 #upper h1{
-    padding-left: 35px;
-    padding-right: 35px;
+    padding-left: 15px;
+    padding-right: 15px;
     height: 100%;
-    padding-top: 65px; 
+    padding-top: 16px; 
     background-color: rgb(248, 252, 248);
-    font-size: 2.2rem;
+    font-size: .9rem;
     font-weight: 300;
 }
 
 #search-bar {
-    margin: auto 0 auto auto;
-    max-width: 60%;
-    min-width: 20%;
-    height: 90px;
+    max-width: calc(100% - 114px);
+    margin-left: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    height: 60%;
     background-color: rgb(255, 255, 255);
-    flex: 1 1 100px;
+    min-width: 0;
+    flex-grow: 1;    
     border: none;
-    border-radius: 10px;
-    font-size: 2rem;
+    border-radius: 5px;
+    font-size: .9rem;
 }
 
 #search-bar:focus {
@@ -170,7 +171,7 @@ header .vl {
 main {
     grid-area: main;
     background-color: rgb(248, 252, 248);
-    padding: 35px 60px;
+    padding: 15px 15px;
 }
 
 
@@ -179,12 +180,12 @@ main {
     position: relative;
     margin: 0 auto;
     background-color: rgb(145, 163, 125);
-    padding: 25px 25px;
+    padding: 15px 15px;
     margin-bottom: 30px;
 }
 
 .alert * {
-    font-size: 1.9rem;
+    font-size: .9rem;
     color: white;
 }
 
@@ -209,6 +210,11 @@ main {
     margin-bottom: 45px;
 }
 
+@media only screen and (min-width: 450px) {
+    #search-bar {
+        max-width: 270px;
+    }
 
+}
 
 
