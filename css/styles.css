@@ -9,7 +9,6 @@
 
 body {
     max-width: 100vw;
-    overflow: hidden;
     position: x;
 }
 
@@ -17,7 +16,6 @@ body {
 
 #grid  {
     max-width: 100%;
-    overflow: hidden;
     display: grid;
     grid-template-columns: 60px minmax(0, 1fr);
     grid-template-rows: 60px 60px minmax(0, 1fr);
@@ -34,14 +32,14 @@ header {
     color: white;
     grid-area: header;
     background-color: rgb(145, 163, 125);
-    padding: 7px 10px;
+    padding: 7px 15px;
     display: flex;
     font-size: 1rem;
 
 }
 
 #app-name {
-    padding-top: 8px;
+    padding-top: 10px;
     color: white;
     font-weight: 300;
     margin-right: auto;
@@ -70,26 +68,26 @@ header {
 }
 
 #bell {
-    margin-top: 10px;
+    margin-top: 5px;
     width: 25px;
 }
 
 header .vl {
     width: 1.2px;
-    height: 30px;
+    height: 40px;
     background-color: rgb(106, 124, 89);
-    margin-top: 15px;
+    margin-top: 5px;
 }
 
 #user-photo {
-    width: 30px;
-    height: 30px;
+    width: 35px;
+    height: 35px;
     border-radius: 50%;
-    margin-top: 12px;
+    margin-top: 7px;
 }
 
 #user-name {
-    margin-top: 8px;
+    margin-top: 10px;
     color: white;
     margin-right: 0;
 }
@@ -202,12 +200,17 @@ main {
 }
 
 .widget {
-    margin-top: 65px;
+    margin-top: 25px;
+}
+
+.widget canvas {
+    min-width: 0;
+    max-width: 100%;
 }
 
 .widget h2 {
-    font-size: 2.3rem;
-    margin-bottom: 45px;
+    font-size: 1.3rem;
+    margin-bottom: 15px;
 }
 
 @media only screen and (min-width: 450px) {

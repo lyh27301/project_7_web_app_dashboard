@@ -52,9 +52,9 @@ for (var prop in trafficOpts) {
  * Daily Traffic chart (Bar)
  */
 
-var ctx = document.getElementById('dailyBarTrafficChart').getContext('2d');
+var daily_ctx = document.getElementById('dailyBarTrafficChart').getContext('2d');
 const barColor = 'rgb(145, 163, 125)';
-var myChart = new Chart(ctx, {
+var dailyChart = new Chart(daily_ctx, {
     type: 'bar',
     data: {
         labels: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
