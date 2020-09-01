@@ -347,3 +347,11 @@ template {
 [hidden] {
   display: none;
 }
+
+/**
+ * Remove all outlines when focused.
+ */
+*:focus {
+  outline: none !important;
+  outline-offset: 0;
+}

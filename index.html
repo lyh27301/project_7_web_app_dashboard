@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,14 +9,18 @@
 
     <!-- Link to css -->
     <link rel="stylesheet" type="text/css" href="css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="css/toggle.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css"
+        integrity="sha512-/zs32ZEJh+/EO2N1b0PEdoA10JkdC3zJ8L5FTiQu82LR9S/rOQNfQN7U59U9BC12swNeRAz3HSzIL2vpp4fv3w=="
+        crossorigin="anonymous" />
     <link rel="stylesheet" type="text/css" href="css/styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css" integrity="sha512-/zs32ZEJh+/EO2N1b0PEdoA10JkdC3zJ8L5FTiQu82LR9S/rOQNfQN7U59U9BC12swNeRAz3HSzIL2vpp4fv3w==" crossorigin="anonymous" />
 
     <!-- Link to fonts -->
     <link
         href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap"
         rel="stylesheet">
 </head>
+
 <body>
     <div id="grid">
 
@@ -23,13 +28,29 @@
         <header>
             <p id="app-name"><span>Your</span>App<span class="trade-mark">TM</span></p>
             <div id="header-right">
-                <img id="bell" src="icons/icon-bell.svg" alt="bell icon">
+                <svg id="bell" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 32 32"
+                    style="enable-background:new 0 0 32 32;" xml:space="preserve">
+                    <style type="text/css">
+                        .st0 {
+                            fill: #FFFFFF;
+                        }
+                    </style>
+                    <g id="_x36__6_">
+                        <g>
+                            <path class="st0" d="M24,18v-8c0-5.5-4.5-10-10-10S4,4.5,4,10v8l-4,8h9.1c0.5,2.3,2.5,4,4.9,4s4.4-1.7,4.9-4H28L24,18z M14,28
+			c-1.3,0-2.4-0.8-2.8-2h5.6C16.4,27.2,15.3,28,14,28z M3,24l3-6v-8c0-4.4,3.6-8,8-8s8,3.6,8,8v8l3,6H3z" />
+                        </g>
+                    </g>
+                    <circle cx="27" cy="-3" r="3" fill="lightgreen"/>
+                </svg>
+
                 <div class="vl"></div>
                 <img id="user-photo" src="images/member-4.jpg" alt="user profile photo">
                 <p id="user-name">Abbey L</p>
             </div>
         </header>
-    
+
         <!-- Side Navigation -->
         <nav id="side-nav">
             <div class="img-container">
@@ -48,40 +69,458 @@
 
         <!-- Upper Section under Header -->
         <div id="upper">
-            <div id="heading-container">            
+            <div id="heading-container">
                 <h1>Dashboard</h1>
             </div>
-            <input type="text" id="search-bar"></input>
+
+            <div id="search">
+                <input type="search" id="search-bar">
+                <svg id="search-icon">
+                    <path id="search-shape"
+                        d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
+                    <path d="M0 0h24v24H0z" fill="none" />
+                </svg>
+            </div>
         </div>
-    
+
+        <!-- Main -->
         <main>
-            <div class="alert">
-                <span class="alert-title">Alert</span>
-                <span class="alert-content">Ebusaoh haodhur foij dijiaj bsw epdh elaoiojvn.</span> 
-                <span class="close-sign">&#9747;</span>
+
+            <!-- Horizontal and Vertical Rules -->
+            <div class="hr" id="hr1"></div>
+            <div class="hr" id="hr2"></div>
+            <div class="hr" id="hr3"></div>
+            <div class="hr" id="hr4"></div>
+            <div class="vr" id="vr1"></div>
+            <div class="vr" id="vr2"></div>
+            <div class="vr" id="vr3"></div>
+
+            <!-- Alert -->
+            <section id="alert-zone">
+                <div class="alert">
+                    <span class="alert-title">Alert</span>
+                    <span class="alert-content">Ebusaoh haodhur foij dijiaj bsw epdh elaoiojvn.</span>
+                    <span class="alert-close-sign">&#9747;</span>
+                </div>
+            </section>
+
+
+            <!-- Traffic -->
+            <div class="widget chart" id="multi-traffic">
+
+                <div class="head-switch-container">
+                    <h2>TRAFFIC</h2>
+
+                    <!-- Toggle Switch -->
+                    <fieldset id="toggle-container">
+                        <div class="switch-toggle switch-ios">
+                            <input id="weekly" name="view" type="radio" checked>
+                            <label for="weekly" onclick="">Weekly</label>
+
+                            <input id="hourly" name="view" type="radio">
+                            <label for="hourly" onclick="">Hourly</label>
+
+                            <input id="daily" name="view" type="radio">
+                            <label for="daily" onclick="">Daily</label>
+
+                            <input id="monthly" name="view" type="radio">
+                            <label for="monthly" onclick="">Monthly</label>
+                            <a></a>
+                        </div>
+                    </fieldset>
+                </div>
+
+
+                <!-- Charts -->
+                <canvas id="hourlyTrafficChart"></canvas>
+                <canvas id="dailyTrafficChart"></canvas>
+                <canvas id="weeklyTrafficChart"></canvas>
+                <canvas id="monthlyTrafficChart"></canvas>
+
             </div>
 
-            <div class="widget" id="multi-traffic">
-                <h2>TRAFFIC</h2>
-                <canvas id="hourlyTrafficChart" width="400" height="400"></canvas>
-                <canvas id="dailyTrafficChart" width="400" height="400"></canvas>
-                <canvas id="weeklyTrafficChart" width="400" height="400"></canvas>
-                <canvas id="monthlyTrafficChart" width="400" height="400"></canvas>
-
-            </div>
-            <div class="widget" id="daily-traffic">
+            <!-- Daily Traffic -->
+            <div class="widget chart" id="daily-traffic">
                 <h2>DAILY TRAFFIC</h2>
                 <canvas id="dailyBarTrafficChart" width="400" height="400"></canvas>
             </div>
-            <div class="widget" id="mobile-users"></div>
-            <div class="widget" id="social-stat"></div>
-            <div class="widget" id="new-member"></div>
-            <div class="widget" id="activity"></div>
-            <div class="widget" id="msg"></div>
-            <div class="widget" id="setting"></div>
+
+            <!-- Mobile Users -->
+            <div class="widget chart" id="mobile-users">
+                <h2>MOBILE USERS</h2>
+                <canvas id="mobileUserDoughnutChart" width="400" height="400"></canvas>
+
+            </div>
+
+            <!-- Social Stats -->
+
+            <div class="widget" id="social-stat">
+                <h2>SOCIAL STATS</h2>
+                <div id="sm-card-container">
+                    <div class="sm-card">
+                        <!-- Twitter logo with styling -->
+                        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                            xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 32 32"
+                            style="enable-background:new 0 0 32 32;" xml:space="preserve">
+                            <g id="logo-twitter">
+                                <circle fill='rgb(145, 163, 125)' cx="10" cy="10" r="10" />
+                                <path id="shape-twitter" fill="white" d="M32,3.1c-1.2,0.5-2.4,0.9-3.8,1c1.4-0.8,2.4-2.1,2.9-3.6c-1.3,0.8-2.7,1.3-4.2,1.6C25.8,0.8,24,0,22.2,0
+                       c-3.6,0-6.6,2.9-6.6,6.6c0,0.5,0.1,1,0.2,1.5C10.3,7.8,5.5,5.2,2.2,1.2c-0.6,1-0.9,2.1-0.9,3.3c0,2.3,1.2,4.3,2.9,5.5
+                       c-1.1,0-2.1-0.3-3-0.8c0,0,0,0.1,0,0.1c0,3.2,2.3,5.8,5.3,6.4c-0.6,0.1-1.1,0.2-1.7,0.2c-0.4,0-0.8,0-1.2-0.1
+                       c0.8,2.6,3.3,4.5,6.1,4.6c-2.2,1.8-5.1,2.8-8.2,2.8c-0.5,0-1.1,0-1.6-0.1c2.9,1.9,6.4,3,10.1,3c12.1,0,18.7-10,18.7-18.7
+                       c0-0.3,0-0.6,0-0.8C30,5.6,31.1,4.4,32,3.1z" />
+                            </g>
+                        </svg>
+                        <h3>Twitter</h3>
+                        <p>10,345</p>
+                    </div>
+
+                    <div class="sm-card">
+                        <!-- Facebook logo with styling -->
+                        <svg enable-background="new 0 0 56.693 56.693" height="80px" width="80px" id="Layer_1"
+                            version="1.1" viewBox="0 0 100 100" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"
+                            xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <g id="logo-facebook">
+                                <circle fill='rgb(145, 163, 125)' cx="30" cy="30" r="30" />
+                                <symbol id="fb" viewBox="0 0 100 100">
+                                    <path id="shape-fb" fill="white"
+                                        d="M40.43,21.739h-7.645v-5.014c0-1.883,1.248-2.322,2.127-2.322c0.877,0,5.395,0,5.395,0V6.125l-7.43-0.029  c-8.248,0-10.125,6.174-10.125,10.125v5.518h-4.77v8.53h4.77c0,10.947,0,24.137,0,24.137h10.033c0,0,0-13.32,0-24.137h6.77  L40.43,21.739z" />
+                                </symbol>
+                                <use xlink:href="#fb" width="50" height="50" />
+                            </g>
+                        </svg>
+                        <h3>Facebook</h3>
+                        <p>8,739</p>
+                    </div>
+
+                    <div class="sm-card">
+                        <!-- Google logo with styling -->
+                        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                            xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100"
+                            style="enable-background:new 0 0 100 100;" xml:space="preserve">
+                            <g id="logo-google">
+                                <circle fill='rgb(145, 163, 125)' cx="25" cy="25" r="25" />
+                                <path id="shape-google" fill="white" d="M17.7,25.7c0-0.3,0-0.5-0.1-0.8c-0.1-0.2-0.1-0.5-0.2-0.7c-0.1-0.2-0.2-0.4-0.3-0.7c-0.2-0.2-0.3-0.4-0.4-0.6
+                       c-0.1-0.2-0.3-0.3-0.5-0.6c-0.2-0.2-0.4-0.4-0.5-0.5c-0.1-0.1-0.3-0.3-0.6-0.5c-0.3-0.2-0.5-0.4-0.6-0.4s-0.3-0.2-0.6-0.4
+                       c-0.3-0.2-0.5-0.4-0.6-0.4c-0.2,0-0.5,0-1,0c-0.7,0-1.4,0-2,0.1c-0.7,0.1-1.4,0.2-2.1,0.5c-0.7,0.2-1.3,0.5-1.9,0.9s-1,0.8-1.3,1.4
+                       c-0.3,0.6-0.5,1.3-0.5,2.1c0,0.9,0.2,1.7,0.7,2.3c0.5,0.7,1.1,1.2,1.8,1.6s1.5,0.7,2.3,0.9s1.6,0.3,2.4,0.3c0.8,0,1.5-0.1,2.2-0.2
+                       c0.7-0.2,1.3-0.4,1.9-0.8c0.6-0.3,1.1-0.8,1.4-1.4C17.5,27.2,17.7,26.5,17.7,25.7z M15.4,9.1c0-0.8-0.1-1.6-0.3-2.5
+                       c-0.2-0.9-0.5-1.7-0.9-2.5c-0.4-0.8-0.9-1.5-1.6-2c-0.7-0.5-1.5-0.8-2.3-0.8c-1.2,0-2.1,0.4-2.8,1.3c-0.7,0.9-1,1.9-1,3.2
+                       c0,0.6,0.1,1.2,0.2,1.9c0.1,0.7,0.4,1.3,0.7,2c0.3,0.7,0.7,1.3,1.1,1.8c0.4,0.5,0.9,1,1.5,1.3c0.6,0.3,1.2,0.5,1.9,0.5
+                       c1.2,0,2.1-0.4,2.7-1.2C15.1,11.4,15.4,10.4,15.4,9.1z M12.9,0h8.4l-2.6,1.5h-2.6c0.9,0.6,1.6,1.4,2.1,2.4s0.8,2.1,0.8,3.2
+                       c0,0.9-0.1,1.8-0.4,2.5c-0.3,0.7-0.7,1.3-1.1,1.8c-0.4,0.4-0.8,0.9-1.3,1.2c-0.4,0.4-0.8,0.8-1.1,1.2c-0.3,0.4-0.4,0.8-0.4,1.3
+                       c0,0.3,0.1,0.7,0.3,1c0.2,0.3,0.5,0.6,0.8,0.9c0.3,0.3,0.7,0.6,1.1,0.9c0.4,0.3,0.8,0.7,1.2,1.1c0.4,0.4,0.8,0.8,1.1,1.3
+                       c0.3,0.5,0.6,1,0.8,1.6c0.2,0.6,0.3,1.3,0.3,2c0,2.1-0.9,3.9-2.7,5.4c-1.9,1.7-4.6,2.5-8.1,2.5c-0.8,0-1.5-0.1-2.3-0.2
+                       c-0.8-0.1-1.6-0.3-2.3-0.6c-0.8-0.3-1.5-0.7-2.1-1.1c-0.6-0.4-1.1-1-1.5-1.7C1,27.6,0.8,26.9,0.8,26c0-0.8,0.2-1.6,0.7-2.6
+                       c0.4-0.8,1-1.5,1.8-2.1c0.8-0.6,1.8-1.1,2.8-1.4c1-0.3,2-0.5,3-0.7c0.9-0.1,1.9-0.2,2.9-0.3c-0.8-1.1-1.2-2-1.2-2.9
+                       c0-0.2,0-0.3,0-0.5c0-0.1,0.1-0.3,0.1-0.4c0-0.1,0.1-0.2,0.2-0.4c0.1-0.2,0.1-0.3,0.1-0.4c-0.5,0.1-1,0.1-1.3,0.1
+                       c-1.9,0-3.5-0.6-4.9-1.9c-1.4-1.3-2-2.8-2-4.7c0-1.8,0.6-3.4,1.8-4.8C6,1.7,7.5,0.8,9.3,0.4C10.5,0.1,11.7,0,12.9,0z M32.8,4.9v2.5
+                       h-4.9v4.9h-2.5V7.4h-4.9V4.9h4.9V0h2.5v4.9H32.8z" />
+                            </g>
+                        </svg>
+                        <h3>Google+</h3>
+                        <p>2,530</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- New Members -->
+            <div class="widget" id="new-member">
+                <h2>NEW MEMBERS</h2>
+
+                <div class="member-card">
+                    <img src="https://randomuser.me/api/portraits/thumb/men/64.jpg" alt="profile photo">
+                    <h6 class="new-member-name">Alfonso Iglesias</h6>
+                    <p class="new-member-email">alfonso.iglesias@example.com</p>
+                    <p class="join-date">02/27/20</p>
+                </div>
+
+                <div class="member-card">
+                    <img src="https://randomuser.me/api/portraits/thumb/men/20.jpg" alt="profile photo">
+                    <h6 class="new-member-name">Petar Bühler</h6>
+                    <p class="new-member-email">petar.buhler@example.com</p>
+                    <p class="join-date">02/22/20</p>
+                </div>
+                <div class="member-card">
+                    <img src="https://randomuser.me/api/portraits/thumb/women/21.jpg" alt="profile photo">
+                    <h6 class="new-member-name">Leonora Hassel</h6>
+                    <p class="new-member-email">leonora.hassel@example.com</p>
+                    <p class="join-date">02/22/20</p>
+                </div>
+                <div class="member-card">
+                    <img src="https://randomuser.me/api/portraits/thumb/women/84.jpg" alt="profile photo">
+                    <h6 class="new-member-name">Marialba Pires</h6>
+                    <p class="new-member-email">marialba.pires@example.com</p>
+                    <p class="join-date">02/22/20</p>
+                </div>
+            </div>
+
+            <!-- Recent Activity -->
+            <div class="widget" id="activity">
+                <h2>RECENT ACTIVITY</h2>
+                <div class="activity-card">
+
+                    <img src="https://randomuser.me/api/portraits/thumb/men/64.jpg" alt="user profile photo" />
+                    <h6 class="activity-content">Alfonso Iglesias commented on YourApp's SEO Tips</h6>
+                    <p class="activity-time">2 hours ago</p>
+                    <div class="arrow">></div>
+                </div>
+                <div class="activity-card">
+                    <img src="https://randomuser.me/api/portraits/thumb/women/21.jpg" alt="user profile photo" />
+                    <h6 class="activity-content">Leonora Hassel commented on Facebook's Changes for 2020</h6>
+                    <p class="activity-time">4 hours ago</p>
+                    <div class="arrow">></div>
+                </div>
+
+                <div class="activity-card">
+                    <img src="https://randomuser.me/api/portraits/thumb/women/84.jpg" alt="user profile photo" />
+                    <h6 class="activity-content">Marialba Pires posted YourApp's SEO Tips</h6>
+                    <p class="activity-time">4 hours ago</p>
+                    <div class="arrow">></div>
+                </div>
+                <div class="activity-card">
+                    <img src="https://randomuser.me/api/portraits/thumb/men/20.jpg" alt="user profile photo" />
+                    <h6 class="activity-content">Petar Bühler like the post Facebook's Changes for 2020</h6>
+                    <p class="activity-time">1 day ago</p>
+                    <div class="arrow">></div>
+                </div>
+            </div>
+
+            <!-- Message User -->
+            <div class="widget" id="msg">
+                <h2>MESSAGE USER</h2>
+                <form action="index.html" method="post">
+                    <input type="search" id="user-search" name="user_name" placeholder="Search for User" />
+                    <div class="abs-container"><div id="auto-complete"></div></div>
+                    <textarea id="message-area" name="message" placeholder="Message for User"></textarea>
+                    <button id="btn-send" type="button">SEND</button>
+                    <div class="abs-container">
+                        <div id="sending-feedback">
+                            <span id="feedback-text"></span>
+                            <span class="feedback-close-sign">&#9747;</span>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Settings -->
+            <div class="widget" id="setting">
+                <h2>SETTING</h2>
+
+                <!-- Send email notifications -->
+                <div class="setting-switch">
+                    <span class="setting-info">Send Email Notifications</span>
+                    <div class="on-off">
+                        <label class="switch-light switch-ios" onclick="">
+                            <input id="email-setting-checkbox" type="checkbox">
+                            <span>
+                                <span id="email-off">Off</span>
+                                <span id="email-on">On</span>
+                                <a></a>
+                            </span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Set profile to public -->
+                <div class="setting-switch">
+                    <span class="setting-info">Set Profile to public</span>
+                    <div class="on-off">
+                        <label class="switch-light switch-ios" onclick="">
+                            <input id="profile-setting-checkbox" type="checkbox">
+                            <span>
+                                <span id="profile-off">Off</span>
+                                <span id="profile-on">On</span>
+                                <a></a>
+                            </span>
+                        </label></div>
+                </div>
+
+                <!-- Time zone selection -->
+                <select id="timezone" name="user-timezone">
+                    <option id="default-timezone-option" value="" disabled selected>Select Timezone</option>
+                    <option timeZoneId="1" gmtAdjustment="GMT-12:00" useDaylightTime="0" value="-12">(GMT-12:00)
+                        International Date Line West</option>
+                    <option timeZoneId="2" gmtAdjustment="GMT-11:00" useDaylightTime="0" value="-11">(GMT-11:00) Midway
+                        Island, Samoa</option>
+                    <option timeZoneId="3" gmtAdjustment="GMT-10:00" useDaylightTime="0" value="-10">(GMT-10:00) Hawaii
+                    </option>
+                    <option timeZoneId="4" gmtAdjustment="GMT-09:00" useDaylightTime="1" value="-9">(GMT-09:00) Alaska
+                    </option>
+                    <option timeZoneId="5" gmtAdjustment="GMT-08:00" useDaylightTime="1" value="-8">(GMT-08:00) Pacific
+                        Time (US & Canada)</option>
+                    <option timeZoneId="6" gmtAdjustment="GMT-08:00" useDaylightTime="1" value="-8">(GMT-08:00) Tijuana,
+                        Baja California</option>
+                    <option timeZoneId="7" gmtAdjustment="GMT-07:00" useDaylightTime="0" value="-7">(GMT-07:00) Arizona
+                    </option>
+                    <option timeZoneId="8" gmtAdjustment="GMT-07:00" useDaylightTime="1" value="-7">(GMT-07:00)
+                        Chihuahua, La Paz, Mazatlan</option>
+                    <option timeZoneId="9" gmtAdjustment="GMT-07:00" useDaylightTime="1" value="-7">(GMT-07:00) Mountain
+                        Time (US & Canada)</option>
+                    <option timeZoneId="10" gmtAdjustment="GMT-06:00" useDaylightTime="0" value="-6">(GMT-06:00) Central
+                        America</option>
+                    <option timeZoneId="11" gmtAdjustment="GMT-06:00" useDaylightTime="1" value="-6">(GMT-06:00) Central
+                        Time (US & Canada)</option>
+                    <option timeZoneId="12" gmtAdjustment="GMT-06:00" useDaylightTime="1" value="-6">(GMT-06:00)
+                        Guadalajara, Mexico City, Monterrey</option>
+                    <option timeZoneId="13" gmtAdjustment="GMT-06:00" useDaylightTime="0" value="-6">(GMT-06:00)
+                        Saskatchewan</option>
+                    <option timeZoneId="14" gmtAdjustment="GMT-05:00" useDaylightTime="0" value="-5">(GMT-05:00) Bogota,
+                        Lima, Quito, Rio Branco</option>
+                    <option timeZoneId="15" gmtAdjustment="GMT-05:00" useDaylightTime="1" value="-5">(GMT-05:00) Eastern
+                        Time (US & Canada)</option>
+                    <option timeZoneId="16" gmtAdjustment="GMT-05:00" useDaylightTime="1" value="-5">(GMT-05:00) Indiana
+                        (East)</option>
+                    <option timeZoneId="17" gmtAdjustment="GMT-04:00" useDaylightTime="1" value="-4">(GMT-04:00)
+                        Atlantic Time (Canada)</option>
+                    <option timeZoneId="18" gmtAdjustment="GMT-04:00" useDaylightTime="0" value="-4">(GMT-04:00)
+                        Caracas, La Paz</option>
+                    <option timeZoneId="19" gmtAdjustment="GMT-04:00" useDaylightTime="0" value="-4">(GMT-04:00) Manaus
+                    </option>
+                    <option timeZoneId="20" gmtAdjustment="GMT-04:00" useDaylightTime="1" value="-4">(GMT-04:00)
+                        Santiago</option>
+                    <option timeZoneId="21" gmtAdjustment="GMT-03:30" useDaylightTime="1" value="-3.5">(GMT-03:30)
+                        Newfoundland</option>
+                    <option timeZoneId="22" gmtAdjustment="GMT-03:00" useDaylightTime="1" value="-3">(GMT-03:00)
+                        Brasilia</option>
+                    <option timeZoneId="23" gmtAdjustment="GMT-03:00" useDaylightTime="0" value="-3">(GMT-03:00) Buenos
+                        Aires, Georgetown</option>
+                    <option timeZoneId="24" gmtAdjustment="GMT-03:00" useDaylightTime="1" value="-3">(GMT-03:00)
+                        Greenland</option>
+                    <option timeZoneId="25" gmtAdjustment="GMT-03:00" useDaylightTime="1" value="-3">(GMT-03:00)
+                        Montevideo</option>
+                    <option timeZoneId="26" gmtAdjustment="GMT-02:00" useDaylightTime="1" value="-2">(GMT-02:00)
+                        Mid-Atlantic</option>
+                    <option timeZoneId="27" gmtAdjustment="GMT-01:00" useDaylightTime="0" value="-1">(GMT-01:00) Cape
+                        Verde Is.</option>
+                    <option timeZoneId="28" gmtAdjustment="GMT-01:00" useDaylightTime="1" value="-1">(GMT-01:00) Azores
+                    </option>
+                    <option timeZoneId="29" gmtAdjustment="GMT+00:00" useDaylightTime="0" value="0">(GMT+00:00)
+                        Casablanca, Monrovia, Reykjavik</option>
+                    <option timeZoneId="30" gmtAdjustment="GMT+00:00" useDaylightTime="1" value="0">(GMT+00:00)
+                        Greenwich Mean Time : Dublin, Edinburgh, Lisbon, London</option>
+                    <option timeZoneId="31" gmtAdjustment="GMT+01:00" useDaylightTime="1" value="1">(GMT+01:00)
+                        Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna</option>
+                    <option timeZoneId="32" gmtAdjustment="GMT+01:00" useDaylightTime="1" value="1">(GMT+01:00)
+                        Belgrade, Bratislava, Budapest, Ljubljana, Prague</option>
+                    <option timeZoneId="33" gmtAdjustment="GMT+01:00" useDaylightTime="1" value="1">(GMT+01:00)
+                        Brussels, Copenhagen, Madrid, Paris</option>
+                    <option timeZoneId="34" gmtAdjustment="GMT+01:00" useDaylightTime="1" value="1">(GMT+01:00)
+                        Sarajevo, Skopje, Warsaw, Zagreb</option>
+                    <option timeZoneId="35" gmtAdjustment="GMT+01:00" useDaylightTime="1" value="1">(GMT+01:00) West
+                        Central Africa</option>
+                    <option timeZoneId="36" gmtAdjustment="GMT+02:00" useDaylightTime="1" value="2">(GMT+02:00) Amman
+                    </option>
+                    <option timeZoneId="37" gmtAdjustment="GMT+02:00" useDaylightTime="1" value="2">(GMT+02:00) Athens,
+                        Bucharest, Istanbul</option>
+                    <option timeZoneId="38" gmtAdjustment="GMT+02:00" useDaylightTime="1" value="2">(GMT+02:00) Beirut
+                    </option>
+                    <option timeZoneId="39" gmtAdjustment="GMT+02:00" useDaylightTime="1" value="2">(GMT+02:00) Cairo
+                    </option>
+                    <option timeZoneId="40" gmtAdjustment="GMT+02:00" useDaylightTime="0" value="2">(GMT+02:00) Harare,
+                        Pretoria</option>
+                    <option timeZoneId="41" gmtAdjustment="GMT+02:00" useDaylightTime="1" value="2">(GMT+02:00)
+                        Helsinki, Kyiv, Riga, Sofia, Tallinn, Vilnius</option>
+                    <option timeZoneId="42" gmtAdjustment="GMT+02:00" useDaylightTime="1" value="2">(GMT+02:00)
+                        Jerusalem</option>
+                    <option timeZoneId="43" gmtAdjustment="GMT+02:00" useDaylightTime="1" value="2">(GMT+02:00) Minsk
+                    </option>
+                    <option timeZoneId="44" gmtAdjustment="GMT+02:00" useDaylightTime="1" value="2">(GMT+02:00) Windhoek
+                    </option>
+                    <option timeZoneId="45" gmtAdjustment="GMT+03:00" useDaylightTime="0" value="3">(GMT+03:00) Kuwait,
+                        Riyadh, Baghdad</option>
+                    <option timeZoneId="46" gmtAdjustment="GMT+03:00" useDaylightTime="1" value="3">(GMT+03:00) Moscow,
+                        St. Petersburg, Volgograd</option>
+                    <option timeZoneId="47" gmtAdjustment="GMT+03:00" useDaylightTime="0" value="3">(GMT+03:00) Nairobi
+                    </option>
+                    <option timeZoneId="48" gmtAdjustment="GMT+03:00" useDaylightTime="0" value="3">(GMT+03:00) Tbilisi
+                    </option>
+                    <option timeZoneId="49" gmtAdjustment="GMT+03:30" useDaylightTime="1" value="3.5">(GMT+03:30) Tehran
+                    </option>
+                    <option timeZoneId="50" gmtAdjustment="GMT+04:00" useDaylightTime="0" value="4">(GMT+04:00) Abu
+                        Dhabi, Muscat</option>
+                    <option timeZoneId="51" gmtAdjustment="GMT+04:00" useDaylightTime="1" value="4">(GMT+04:00) Baku
+                    </option>
+                    <option timeZoneId="52" gmtAdjustment="GMT+04:00" useDaylightTime="1" value="4">(GMT+04:00) Yerevan
+                    </option>
+                    <option timeZoneId="53" gmtAdjustment="GMT+04:30" useDaylightTime="0" value="4.5">(GMT+04:30) Kabul
+                    </option>
+                    <option timeZoneId="54" gmtAdjustment="GMT+05:00" useDaylightTime="1" value="5">(GMT+05:00)
+                        Yekaterinburg</option>
+                    <option timeZoneId="55" gmtAdjustment="GMT+05:00" useDaylightTime="0" value="5">(GMT+05:00)
+                        Islamabad, Karachi, Tashkent</option>
+                    <option timeZoneId="56" gmtAdjustment="GMT+05:30" useDaylightTime="0" value="5.5">(GMT+05:30) Sri
+                        Jayawardenapura</option>
+                    <option timeZoneId="57" gmtAdjustment="GMT+05:30" useDaylightTime="0" value="5.5">(GMT+05:30)
+                        Chennai, Kolkata, Mumbai, New Delhi</option>
+                    <option timeZoneId="58" gmtAdjustment="GMT+05:45" useDaylightTime="0" value="5.75">(GMT+05:45)
+                        Kathmandu</option>
+                    <option timeZoneId="59" gmtAdjustment="GMT+06:00" useDaylightTime="1" value="6">(GMT+06:00) Almaty,
+                        Novosibirsk</option>
+                    <option timeZoneId="60" gmtAdjustment="GMT+06:00" useDaylightTime="0" value="6">(GMT+06:00) Astana,
+                        Dhaka</option>
+                    <option timeZoneId="61" gmtAdjustment="GMT+06:30" useDaylightTime="0" value="6.5">(GMT+06:30) Yangon
+                        (Rangoon)</option>
+                    <option timeZoneId="62" gmtAdjustment="GMT+07:00" useDaylightTime="0" value="7">(GMT+07:00) Bangkok,
+                        Hanoi, Jakarta</option>
+                    <option timeZoneId="63" gmtAdjustment="GMT+07:00" useDaylightTime="1" value="7">(GMT+07:00)
+                        Krasnoyarsk</option>
+                    <option timeZoneId="64" gmtAdjustment="GMT+08:00" useDaylightTime="0" value="8">(GMT+08:00) Beijing,
+                        Chongqing, Hong Kong, Urumqi</option>
+                    <option timeZoneId="65" gmtAdjustment="GMT+08:00" useDaylightTime="0" value="8">(GMT+08:00) Kuala
+                        Lumpur, Singapore</option>
+                    <option timeZoneId="66" gmtAdjustment="GMT+08:00" useDaylightTime="0" value="8">(GMT+08:00) Irkutsk,
+                        Ulaan Bataar</option>
+                    <option timeZoneId="67" gmtAdjustment="GMT+08:00" useDaylightTime="0" value="8">(GMT+08:00) Perth
+                    </option>
+                    <option timeZoneId="68" gmtAdjustment="GMT+08:00" useDaylightTime="0" value="8">(GMT+08:00) Taipei
+                    </option>
+                    <option timeZoneId="69" gmtAdjustment="GMT+09:00" useDaylightTime="0" value="9">(GMT+09:00) Osaka,
+                        Sapporo, Tokyo</option>
+                    <option timeZoneId="70" gmtAdjustment="GMT+09:00" useDaylightTime="0" value="9">(GMT+09:00) Seoul
+                    </option>
+                    <option timeZoneId="71" gmtAdjustment="GMT+09:00" useDaylightTime="1" value="9">(GMT+09:00) Yakutsk
+                    </option>
+                    <option timeZoneId="72" gmtAdjustment="GMT+09:30" useDaylightTime="0" value="9.5">(GMT+09:30)
+                        Adelaide</option>
+                    <option timeZoneId="73" gmtAdjustment="GMT+09:30" useDaylightTime="0" value="9.5">(GMT+09:30) Darwin
+                    </option>
+                    <option timeZoneId="74" gmtAdjustment="GMT+10:00" useDaylightTime="0" value="10">(GMT+10:00)
+                        Brisbane</option>
+                    <option timeZoneId="75" gmtAdjustment="GMT+10:00" useDaylightTime="1" value="10">(GMT+10:00)
+                        Canberra, Melbourne, Sydney</option>
+                    <option timeZoneId="76" gmtAdjustment="GMT+10:00" useDaylightTime="1" value="10">(GMT+10:00) Hobart
+                    </option>
+                    <option timeZoneId="77" gmtAdjustment="GMT+10:00" useDaylightTime="0" value="10">(GMT+10:00) Guam,
+                        Port Moresby</option>
+                    <option timeZoneId="78" gmtAdjustment="GMT+10:00" useDaylightTime="1" value="10">(GMT+10:00)
+                        Vladivostok</option>
+                    <option timeZoneId="79" gmtAdjustment="GMT+11:00" useDaylightTime="1" value="11">(GMT+11:00)
+                        Magadan, Solomon Is., New Caledonia</option>
+                    <option timeZoneId="80" gmtAdjustment="GMT+12:00" useDaylightTime="1" value="12">(GMT+12:00)
+                        Auckland, Wellington</option>
+                    <option timeZoneId="81" gmtAdjustment="GMT+12:00" useDaylightTime="0" value="12">(GMT+12:00) Fiji,
+                        Kamchatka, Marshall Is.</option>
+                    <option timeZoneId="82" gmtAdjustment="GMT+13:00" useDaylightTime="0" value="13">(GMT+13:00)
+                        Nuku'alofa</option>
+                </select>
+
+                <!-- Save and Cancel buttons -->
+                <div id="setting-btns">
+                    <button id="btn-save" type="button">SAVE</button>
+                    <button id="btn-cancel" type="button">CANCEL</button>
+                </div>
+
+            </div>
         </main>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" integrity="sha512-s+xg36jbIujB2S2VKfpGmlC3T5V2TF3lY48DX7u2r9XzGzgPsa6wTpOQA7J9iffvdeBN0q9tKzRxVxw1JviZPg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"
+        integrity="sha512-s+xg36jbIujB2S2VKfpGmlC3T5V2TF3lY48DX7u2r9XzGzgPsa6wTpOQA7J9iffvdeBN0q9tKzRxVxw1JviZPg=="
+        crossorigin="anonymous"></script>
     <script src="js/charts.js"></script>
+    <script src="js/toggle.js"></script>
+    <script src="js/user_search.js"></script>
+    <script src="js/button.js"></script>
 </body>
+
 </html>

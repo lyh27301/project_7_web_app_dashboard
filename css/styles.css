@@ -9,20 +9,16 @@
 
 body {
     max-width: 100vw;
-    position: x;
 }
 
 /* Grid Layout */
 
-#grid  {
+#grid {
     max-width: 100%;
     display: grid;
     grid-template-columns: 60px minmax(0, 1fr);
     grid-template-rows: 60px 60px minmax(0, 1fr);
-    grid-template-areas: 
-    "header header"
-    "side upper"
-    "side main";
+    grid-template-areas: "header header" "side upper" "side main";
     min-height: 100vh;
 }
 
@@ -35,7 +31,6 @@ header {
     padding: 7px 15px;
     display: flex;
     font-size: 1rem;
-
 }
 
 #app-name {
@@ -72,6 +67,12 @@ header {
     width: 25px;
 }
 
+#bell:hover {
+    transform: rotate3d(0, 1, 0, 360deg) ;
+    transition: all .7s ease-in-out;
+}
+
+
 header .vl {
     width: 1.2px;
     height: 40px;
@@ -99,7 +100,7 @@ header .vl {
     display: flex;
     flex-wrap: nowrap;
     position: relative;
-    background-color:rgb(233, 240, 232);
+    background-color: rgb(233, 240, 232);
     padding-right: 7px;
 }
 
@@ -107,37 +108,55 @@ header .vl {
     margin-right: auto;
 }
 
-#upper h1{
+#upper h1 {
     padding-left: 15px;
     padding-right: 15px;
     height: 100%;
-    padding-top: 16px; 
+    padding-top: 16px;
     background-color: rgb(248, 252, 248);
     font-size: .9rem;
     font-weight: 300;
 }
 
-#search-bar {
+#search {
+    text-align: end;
     max-width: calc(100% - 114px);
     margin-left: auto;
     margin-top: auto;
     margin-bottom: auto;
-    height: 60%;
-    background-color: rgb(255, 255, 255);
     min-width: 0;
-    flex-grow: 1;    
+    flex-grow: 1;
+    position: relative;
+}
+
+#search-bar {
+    height: 40px;
+    width: 96%;
+    background-color: rgb(255, 255, 255);
     border: none;
     border-radius: 5px;
     font-size: .9rem;
+    padding: 2px 5px;
 }
 
 #search-bar:focus {
-    border: 8px inset rgb(252, 250, 250);
+    border: 3px inset rgb(252, 250, 250);
     outline: none;
 }
 
+#search-icon {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    right: -12px;
+    top: 6px;
+}
 
-
+#search-shape {
+    fill: rgba(119, 145, 114, 0.719);
+    stroke: rgba(119, 145, 114, 0.719);
+    stroke-width: 2px;
+}
 
 /* Side Navigation */
 
@@ -169,17 +188,26 @@ header .vl {
 main {
     grid-area: main;
     background-color: rgb(248, 252, 248);
-    padding: 15px 15px;
+    padding-top: 20px;
 }
 
+.vr, 
+.hr {
+    display: none;
+}
 
+/* Main - Alert */
+
+#alert-zone {
+    width: 95%;
+    margin: 0 auto;
+}
 
 .alert {
     position: relative;
     margin: 0 auto;
     background-color: rgb(145, 163, 125);
     padding: 15px 15px;
-    margin-bottom: 30px;
 }
 
 .alert * {
@@ -192,15 +220,42 @@ main {
     padding-right: 10px;
 }
 
-.close-sign {
+.alert-close-sign {
     position: absolute;
-    top: 7px;
-    right: 7px;
-    font-weight: 600;
+    top: 0px;
+    right: 5px;
+    font-weight: 900;
+    transform: scaleY(.8);
+}
+
+/* Main - Charts */
+
+.switch-toggle * {
+    outline: none;
+}
+
+.head-switch-container {
+    position: relative;
+    height: 80px;
+}
+
+#toggle-container {
+    position: absolute;
+    top: 35px;
+    right: 0;
+    border: none;
+    width: 200px;
+    padding-bottom: 15px;
+}
+
+#toggle-container * {
+    font-size: .7rem;
 }
 
 .widget {
-    margin-top: 25px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 10px 10px;
 }
 
 .widget canvas {
@@ -213,11 +268,473 @@ main {
     margin-bottom: 15px;
 }
 
-@media only screen and (min-width: 450px) {
-    #search-bar {
-        max-width: 270px;
-    }
+.chart canvas{
+    width: 100%;
+}
 
+#multi-traffic canvas{
+    max-height: 600px;
+}
+/* Social stats */
+
+.sm-card {
+    min-width: 0;
+    background-color: rgb(242, 245, 238);
+    padding: 15px 40px 15px 20px;
+    border: .3px solid rgb(145, 163, 125);
+    display: grid;
+    grid-template-areas: "logo name" "logo num";
+    grid-template-columns: 60% 40%;
+    grid-template-rows: auto auto;
+    margin-bottom: 15px;
+}
+
+.sm-card svg {
+    grid-area: logo;
+    height: 60px;
+    min-width: 0;
+}
+
+.sm-card h3 {
+    grid-area: name;
+    color: rgb(145, 163, 125);
+}
+
+.sm-card p {
+    grid-area: num;
+}
+
+#shape-twitter {
+    transform: translate(4px, 5px) scale(.4);
+}
+
+#shape-fb {
+    transform: translate(16px, 15px) scale(1.5);
+}
+
+#shape-google {
+    transform: translate(12px, 12px) scale(.9);
+}
+
+#logo-google {
+    transform: scale(1.68) translate(2px, 6px);
+}
+
+#logo-facebook {
+    transform: scale(1.4) translate(-10px, 7px);
+}
+
+#logo-twitter {
+    transform: scale(1.4) translateY(1px);
+}
+
+/* Cards - New Members */
+
+.member-card {
+    display: grid;
+    grid-template-areas: "photo name" "photo date" "email email";
+    grid-template-columns: 60px auto;
+    padding: 10px 7px;
+    border-bottom: .3px solid rgb(211, 211, 211);
+    height: 80px;
+}
+
+.member-card:last-child {
+    border-bottom: none;
+}
+
+.member-card img {
+    grid-area: photo;
+    border-radius: 50%;
+}
+
+.new-member-name {
+    grid-area: name;
+    font-size: .8rem;
+}
+
+.new-member-email {
+    grid-area: email;
+    font-size: .7rem;
+    color: rgb(145, 163, 125);
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.join-date {
+    font-size: .6rem;
+    grid-area: date;
+}
+
+/* Cards - Recent Activity */
+
+.activity-card {
+    display: grid;
+    grid-template-areas: "photo content arrow" "photo time arrow";
+    grid-template-columns: 60px auto 30px;
+    padding: 10px 7px;
+    border-bottom: .3px solid rgb(211, 211, 211);
+}
+
+.activity-card:last-child {
+    border-bottom: none;
+}
+
+.activity-card img {
+    grid-area: photo;
+    border-radius: 50%;
+    margin-right: 30px;
+}
+
+.activity-content {
+    grid-area: content;
+    font-size: .8rem;
+}
+
+.activity-time {
+    grid-area: time;
+    font-size: .7rem;
+}
+
+.arrow {
+    font-family: 'Courier New', Courier, monospace;
+    margin: auto 0 auto auto;
+    grid-area: arrow;
+    color: rgb(145, 163, 125);
+    font-size: 1.3rem;
+    transform: scaleY(2);
+}
+
+/* Cards */
+.member-card,
+.activity-card {
+    min-height: 93px;
 }
 
 
+/* Message User */
+
+#user-search,
+#message-area {
+    background-color: rgb(240, 244, 240);
+    font-size: .9rem;
+    padding-left: 8px;
+}
+
+#user-search::placeholder,
+#message-area::placeholder {
+    color: rgb(190, 193, 193);
+}
+
+
+#user-search {
+    height: 2rem;
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+#message-area {
+    padding-top: 10px;
+    height: 9rem;
+    width: 100%;
+    display: block;
+    border: none;
+    border-radius: 5px;
+}
+
+#btn-send {
+    width: 100%;
+    height: 40px;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 14px;
+    color: white;
+    background-color: rgb(145, 163, 125);
+    font-weight: 300;
+    margin-top: 7px;
+}
+.abs-container{
+    position: relative;
+}
+
+#auto-complete {
+    position: absolute;
+    top: 0px;
+}
+
+#auto-complete * {
+    height: 30px;
+    width: 110px;
+    background-color: #fff;
+    border: .05px solid rgb(58, 53, 53)eee;
+    font-size: .7rem;
+    padding-left: 5px;
+}
+
+#sending-feedback {
+    position: absolute;
+    margin-top: -200px;
+    left: 50%;
+    margin-left: -90px;
+    width: 180px;
+    background-color: #fff;
+    border: .05px solid #eee;
+    font-size: .7rem;
+    display: none;
+    text-align: center;
+    padding: 30px 10px;
+}
+
+#sending-feedback * {
+    color: white;
+}
+
+.feedback-close-sign {
+    transform: scaleY(.8);
+    position: absolute;
+    top: 1px;
+    right: 5px;
+}
+
+
+/* Setting */
+
+#setting * :not(h2) {
+    font-size: .9rem;
+}
+
+.switch-ios.switch-light input ~ span {
+    width: 80px;
+    display: inline-block;
+}
+
+.setting-switch {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+}
+
+.on-off {
+    flex-basis: 80px;
+}
+
+.setting-info {
+    margin-right: 10px;
+    flex-basis: 220px;
+}
+
+.setting-info,
+.on-off {
+    height: 30px;
+}
+
+
+#timezone {
+    height: 40px;
+    width: 100%;
+    padding: 5px 7px;
+    border: .3px solid lightgray;
+    background-color: rgb(240, 244, 240);
+    color: #999999;
+    margin-bottom: 7px;
+}
+
+#setting button {
+    height: 40px;
+    color: white;
+    width: 49%;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 7px;
+}
+
+#setting-btns {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+#btn-save {
+    background-color: rgb(145, 163, 125);
+}
+
+#btn-cancel {
+    background-color: lightgray;
+}
+
+
+
+@media only screen and (min-width: 320px) {
+    .member-card {
+        grid-template-areas: "photo name" "photo email" "photo date";
+    }
+    .new-member-email {
+        margin-top: 0;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    #toggle-container  {
+        width: 230px;
+    }
+
+    .widget{
+        padding: 10px 12px;
+    }
+
+    #sending-feedback {
+        left: 50%;
+        margin-left: -110px;
+        width: 220px;
+        font-size: .9rem;
+    }
+}
+
+@media only screen and (min-width: 434px) {
+    #search {
+        max-width: 270px;
+    }
+    .head-switch-container {
+        height: 40px;
+    }
+    #toggle-container {
+        position: absolute;
+        top: 0px;
+        right: 0;
+        border: none;
+        width: 240px;
+        font-size: .8rem;
+    }
+    .member-card {
+        grid-template-areas: "photo name ." "photo email date";
+    }
+    .join-date {
+        margin-left: auto;
+    }
+
+    .widget{
+        padding: 10px 20px;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    main {
+        display: grid;
+        grid-template-areas: 
+            "alert alert  alert"
+            "chart1 chart1 chart1"
+            "hr1 hr1 hr1"
+            "chart2 vr1 chart3"
+            "hr2 hr2 hr2"
+            "social-stat social-stat social-stat"
+            "hr3 hr3 hr3"
+            "new-member vr2 activity"
+            "hr4 hr4 hr4"
+            "msg vr3 setting";
+        grid-template-columns: 1fr auto 1fr;
+    }
+
+    #hr1 {grid-area: hr1;}
+    #hr2 {grid-area: hr2;}
+    #hr3 {grid-area: hr3;}
+    #hr4 {grid-area: hr4;}
+    #vr1 {grid-area: vr1;}
+    #vr2 {grid-area: vr2;}
+    #vr3 {grid-area: vr3;}
+
+    .hr,
+    .vr {
+        display: block;
+        background-color: #d2d6d0;
+    }
+
+    .hr {
+        width: 100%;
+        height: .3px;
+    }
+
+    .vr {
+        width: .3px;
+        height: 100%;
+    }
+
+
+    #alert-zone {
+        grid-area: alert;
+    }
+
+    #multi-traffic {
+        grid-area: chart1;
+    }
+
+    #daily-traffic {
+        grid-area: chart2;
+    }
+
+    #mobile-users {
+        grid-area: chart3;
+    }   
+
+    #social-stat {
+        grid-area: social-stat;
+    }
+
+    #new-member {
+        grid-area: new-member;
+    }
+
+    #activity {
+        grid-area: activity;
+    }
+
+    #msg,
+    #setting {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 300px;
+    }
+
+    #msg form {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+
+
+
+    #msg {
+        grid-area: msg;
+    }
+
+    #setting {
+        grid-area: setting;
+    }
+
+    #sm-card-container {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .sm-card {
+        flex: 1 1 auto;
+        margin: 5px 10px;
+    }
+
+    .sm-card:first-child {
+        margin-left: 0;
+    }
+
+    .sm-card:last-child {
+        margin-right: 0;
+    }
+
+    #setting-btns {
+        margin-top: 21px;
+    }
+}
