@@ -25,8 +25,16 @@ btnSend.addEventListener('click', sendMsg);
 function sendMsg() {
 
     let feedbackText = '';
+    
+    let uppercaseUsers = [];
+    user_list.forEach(user => {
+        uppercaseUsers.push(user.toUpperCase());
+    });
+
+    let currentInput = userSearchInput.value.toUpperCase();
+
     // Check if user is valid
-    if (user_list.includes(userSearchInput.value)) {
+    if (uppercaseUsers.includes(currentInput)) {
         // If valid, check if textArea is empty.
         if (messageArea.value !== '') {
             // If not empty, display the feedback of success.
