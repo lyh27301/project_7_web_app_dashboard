@@ -11,6 +11,8 @@ body {
     max-width: 100vw;
 }
 
+
+
 /* Grid Layout */
 
 #grid {
@@ -127,6 +129,10 @@ header {
     position: absolute;
     top: 3px;
     right: 3px;
+}
+
+.notification-close:hover {
+    color: green;
 }
 
 .header-vl {
@@ -282,6 +288,10 @@ main {
     right: 5px;
     font-weight: 900;
     transform: scaleY(.8);
+}
+
+.alert-close-sign:hover {
+    color: rgb(128, 131, 128);
 }
 
 /* Main - Charts */
@@ -505,9 +515,13 @@ main {
     border-radius: 6px;
     padding: 8px 14px;
     color: white;
-    background-color: rgb(145, 163, 125);
+    background-color: rgb(155, 173, 135);
     font-weight: 300;
     margin-top: 7px;
+}
+
+#btn-send:hover {
+    background-color: rgb(165, 183, 145);
 }
 
 .abs-container {
@@ -612,8 +626,16 @@ main {
     background-color: rgb(145, 163, 125);
 }
 
+#btn-save:hover {
+    background-color: rgb(165, 183, 145);
+}
+
 #btn-cancel {
-    background-color: lightgray;
+    background-color: #999;
+}
+
+#btn-cancel:hover {
+    background-color: #AAA;
 }
 
 @media only screen and (min-width: 320px) {
