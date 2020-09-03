@@ -118,7 +118,7 @@ function initSetting(settingEmail, settingProfile, timezoneId) {
                 // In case of default option, unselect it.
                 opt.selected = false;
             }else{
-                if(opt.getAttribute('timeZoneId') === timezoneId) {
+                if(opt.id('timeZoneId') === timezoneId) {
                     opt.selected = true;
                 }
             }
@@ -149,8 +149,8 @@ btnSave.addEventListener('click', (e) => {
     // Timezone
     let timezoneStatus = '';
     timezoneOptions.forEach(opt => {
-        if (opt.selected && opt.getAttribute('timeZoneId')) {
-            timezoneStatus = opt.getAttribute('timeZoneId');
+        if (opt.selected && opt.id) {
+            timezoneStatus = opt.id;
         }
     });
     localStorage.setItem('timezoneSelection', timezoneStatus);
@@ -165,3 +165,35 @@ btnCancel.addEventListener('click', (e) => {
     localStorage.setItem('profileSetting', '');
     localStorage.setItem('timezoneSelection', '');
 });
+
+/**
+ * Dropdown notifications
+ */
+
+// Set a counter of unchecked notifications.
+let numNotifications = 2;
+
+// Get button bell.
+const bell = document.getElementById('bell');
+
+// Get the green dot on bell icon.
+const bellDot = document.getElementById('bell-dot');
+
+// Get hidden dropdown menu.
+const notifications = document.getElementsByClassName('dropdown-content')[0];
+
+// Show dropdown menu when the bell icon is clicked.
+bell.addEventListener('click', (e) => {
+    notifications.style.display = 'block';
+});
+
+// Handle close signs of notifications.
+notifications.addEventListener('click', (e) => {
+    if(e.target.className === 'notification-close') {
+        e.target.parentElement.style.display = 'none';
+        numNotifications --;
+        if(numNotifications === 0) {
+            bellDot.style.display = 'none'; 
+        }
+    }
+})
