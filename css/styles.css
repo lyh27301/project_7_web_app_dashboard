@@ -70,6 +70,7 @@ header {
 #bell {
     margin-top: 11px;
     width: 25px;
+    cursor: pointer;
 }
 
 #bell:hover {
@@ -129,6 +130,7 @@ header {
     position: absolute;
     top: 3px;
     right: 3px;
+    cursor: pointer;
 }
 
 .notification-close:hover {
@@ -288,6 +290,7 @@ main {
     right: 5px;
     font-weight: 900;
     transform: scaleY(.8);
+    cursor: pointer;
 }
 
 .alert-close-sign:hover {
@@ -540,6 +543,7 @@ main {
     border: .05px solid rgb(58, 53, 53)eee;
     font-size: .7rem;
     padding-left: 5px;
+    cursor: pointer;
 }
 
 #sending-feedback {
@@ -565,6 +569,7 @@ main {
     position: absolute;
     top: 1px;
     right: 5px;
+    cursor: pointer;
 }
 
 /* Setting */
