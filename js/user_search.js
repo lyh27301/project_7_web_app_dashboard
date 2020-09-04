@@ -61,7 +61,7 @@ function hideNames() {
             nameElements.forEach(nameElement => {
                 nameElement.style.display = 'none';
             });
-        }, 50);
+        }, 500);
 }
 
 
